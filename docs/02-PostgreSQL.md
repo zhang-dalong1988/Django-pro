@@ -24,7 +24,6 @@ $ pip freeze > requirements.txt
 ```
 asgiref==3.9.1
 Django==5.2.4
-psycopg==3.2.9
 psycopg-binary==3.2.9
 sqlparse==0.5.3
 tzdata==2025.2
