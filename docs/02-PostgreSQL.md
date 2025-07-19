@@ -160,3 +160,5 @@ $ git add .
 $ git commit -m "ch2-数据库配置基础"
 $ git push
 ```
+
+## 小结
