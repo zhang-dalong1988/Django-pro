@@ -2,4 +2,5 @@
 code/.venv/
 __pycache__/
 db.sqlite3
-.DS_Store  # 仅限Mac
+# 仅限 Mac
+.DS_Store 
