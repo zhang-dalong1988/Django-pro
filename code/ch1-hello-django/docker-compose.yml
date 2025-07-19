@@ -1,5 +1,5 @@
 # 项目名称：用于标识 Docker Compose 项目，影响网络名称和容器前缀
-name: hello-django
+name: ch1-hello-django
 
 # === 服务定义 ===
 services:
