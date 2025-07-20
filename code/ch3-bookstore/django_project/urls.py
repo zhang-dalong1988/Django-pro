@@ -18,6 +18,11 @@ from django.contrib import admin
 from django.urls import path, include  # 新增
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("pages.urls")),  # 新增
+    # Django Admin 后台
+    path("admin/", admin.site.urls),
+    # Django 内置认证系统
+    path("accounts/", include("django.contrib.auth.urls")),  # 新增
+    # 本地应用
+    path("accounts/", include("accounts.urls")),  # 新增
+    path("", include("pages.urls")),
 ]

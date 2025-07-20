@@ -1,5 +1,18 @@
 {% extends "_base.html" %}
-{% block title %} Home {% endblock title %}
+
+{% block title %}Home{% endblock title %}
+
 {% block content %}
-<h1>This is our home page.</h1>
+<h1>这是我们的主页。</h1>
+{% if user.is_authenticated %}
+<p>你好 {{ user.email }}!</p>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">注销</button>
+</form>
+{% else %}
+<p>你尚未登录</p>
+<a href="{% url 'login' %}">登录</a>
+<a href="{% url 'signup' %}">注册</a>
+{% endif %}
 {% endblock content %}

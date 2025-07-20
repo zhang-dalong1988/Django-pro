@@ -72,6 +72,9 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = "home"  # 新增
+LOGOUT_REDIRECT_URL = "home"  # 新增
+
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
 
