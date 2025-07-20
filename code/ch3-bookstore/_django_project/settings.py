@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 本地应用
     "accounts.apps.AccountsConfig",  # 新增
+    "pages.apps.PagesConfig",  # 新增
 ]
 
 
@@ -59,7 +60,8 @@ ROOT_URLCONF = "_django_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],  # 新增
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
