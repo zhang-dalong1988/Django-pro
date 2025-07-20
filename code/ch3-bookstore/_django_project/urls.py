@@ -1,5 +1,5 @@
 """
-URL configuration for django_project project.
+URL configuration for _django_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -15,14 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include  # 新增
+from django.urls import path
 
 urlpatterns = [
-    # Django Admin 后台
-    path("admin/", admin.site.urls),
-    # Django 内置认证系统
-    path("accounts/", include("django.contrib.auth.urls")),  # 新增
-    # 本地应用
-    path("accounts/", include("accounts.urls")),  # 新增
-    path("", include("pages.urls")),
+    path('admin/', admin.site.urls),
 ]
