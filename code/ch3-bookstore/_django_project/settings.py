@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "django.contrib.admin",
-    "django.contrib.auth",
+    "django.contrib.auth",  # 这里！
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
@@ -44,6 +44,9 @@ INSTALLED_APPS = [
 
 
 AUTH_USER_MODEL = "accounts.CustomUser"  # 新增
+LOGIN_REDIRECT_URL = "home"  # 新增
+LOGOUT_REDIRECT_URL = "home"  # 新增
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

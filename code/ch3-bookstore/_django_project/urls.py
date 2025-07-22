@@ -19,6 +19,11 @@ from django.contrib import admin
 from django.urls import path, include  # new
 
 urlpatterns = [
+    # Django 管理后台
     path("admin/", admin.site.urls),
-    path("", include("pages.urls")),  # new
+    # 自定义用户管理
+    path("accounts/", include("django.contrib.auth.urls")),  # 新增
+    # 本地应用
+    path("accounts/", include("accounts.urls")),  # 新增
+    path("", include("pages.urls")),
 ]
