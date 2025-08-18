@@ -1,4 +1,3 @@
-# pages/views.py
 from django.http import HttpResponse
 
 

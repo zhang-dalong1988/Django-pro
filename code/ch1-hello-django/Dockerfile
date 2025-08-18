@@ -17,6 +17,7 @@ WORKDIR /code
 # === 执行命令 ===
 # 安装依赖
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+# 使用清华大学镜像源安装依赖
+RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 # 复制项目代码
 COPY . .
