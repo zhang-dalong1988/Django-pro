@@ -13,7 +13,7 @@ $ cd ch2-postgresql
 创建 Django 项目
 
 ```bash
-$ django-admin startproject django_project .
+$ django-admin startproject _project .
 $ python manage.py migrate
 $ python manage.py runserver
 $ pip freeze > requirements.txt
@@ -23,10 +23,10 @@ $ pip freeze > requirements.txt
 
 ```
 asgiref==3.9.1
-Django==5.2.4
-psycopg-binary==3.2.9
+Django==5.0.14
 sqlparse==0.5.3
 tzdata==2025.2
+psycopg2-binary==2.9.10
 ```
 
 修改 `django_project/settings.py` 文件
@@ -77,7 +77,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 COPY . .
 ```
 
