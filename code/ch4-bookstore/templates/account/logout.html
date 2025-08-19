@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  登出
+{% endblock %}
+
+{% block content %}
+  <h1>登出</h1>
+  <p>你确定要登出吗？</p>
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-danger" type="submit">登出</button>
+  </form>
+{% endblock content %}

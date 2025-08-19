@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",  # 作用：提供会话支持,用于存储和检索会话数据
     "django.contrib.messages",  # 作用：提供消息框架,用于在请求之间传递临时消息
     "django.contrib.staticfiles",  # 作用：提供静态文件管理,用于处理CSS、JavaScript等静态资源
+    "django.contrib.sites",  # 作用：提供站点框架,用于管理多个站点
     # 第三方
     "crispy_forms",  # 新增
     "crispy_bootstrap5",  # 新增
+    "allauth",  # 新增
+    "allauth.account",  # 新增
     # 本地应用
     "accounts.apps.AccountsConfig",  # 新增
     "pages.apps.PagesConfig",  # new
@@ -47,8 +50,6 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = "accounts.CustomUser"  # 新增
 
-LOGIN_REDIRECT_URL = "home"  # new
-LOGOUT_REDIRECT_URL = "home"  # new
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -144,3 +145,30 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # 新增
 CRISPY_TEMPLATE_PACK = "bootstrap5"  # 新增
+
+# django-allauth
+
+SITE_ID = 1  # 新增
+
+ACCOUNT_SESSION_REMEMBER = True  # 新增
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # 新增
+ACCOUNT_USERNAME_REQUIRED = False  # 新增
+ACCOUNT_AUTHENTICATION_METHOD = "email"  # 新增
+ACCOUNT_EMAIL_REQUIRED = True  # 新增
+ACCOUNT_UNIQUE_EMAIL = True  # 新增
+
+# 身份验证
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",  # 新增
+)
+
+# 邮箱验证
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # 新增
+
+# 登录/注销 行为控制
+
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT = "home"  # 新增
