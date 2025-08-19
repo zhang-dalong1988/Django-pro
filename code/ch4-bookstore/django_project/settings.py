@@ -175,8 +175,13 @@ AUTHENTICATION_BACKENDS = (
 # 邮箱验证
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # 新增
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # new
 
 # 登录/注销 行为控制
 
 LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT = "home"  # 新增
+
+# Email 功能
+
+DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"  # 新增
