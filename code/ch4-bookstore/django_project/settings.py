@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",  # 作用：提供会话支持,用于存储和检索会话数据
     "django.contrib.messages",  # 作用：提供消息框架,用于在请求之间传递临时消息
     "django.contrib.staticfiles",  # 作用：提供静态文件管理,用于处理CSS、JavaScript等静态资源
+    # 第三方
+    "crispy_forms",  # 新增
+    "crispy_bootstrap5",  # 新增
     # 本地应用
     "accounts.apps.AccountsConfig",  # 新增
     "pages.apps.PagesConfig",  # new
@@ -128,8 +131,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]  # 新增
+STATIC_ROOT = BASE_DIR / "staticfiles"  # 新增
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"  # 新增
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# django-crispy-forms
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # 新增
+CRISPY_TEMPLATE_PACK = "bootstrap5"  # 新增
