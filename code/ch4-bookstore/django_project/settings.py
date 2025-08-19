@@ -31,17 +31,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.admin",  # 作用：提供 Django 管理后台
+    "django.contrib.auth",  # 作用：提供用户认证系统
+    "django.contrib.contenttypes",  # 作用：提供内容类型框架,用于跟踪模型和权限
+    "django.contrib.sessions",  # 作用：提供会话支持,用于存储和检索会话数据
+    "django.contrib.messages",  # 作用：提供消息框架,用于在请求之间传递临时消息
+    "django.contrib.staticfiles",  # 作用：提供静态文件管理,用于处理CSS、JavaScript等静态资源
+    # 本地应用
     "accounts.apps.AccountsConfig",  # 新增
     "pages.apps.PagesConfig",  # new
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"  # 新增
+
+LOGIN_REDIRECT_URL = "home"  # new
+LOGOUT_REDIRECT_URL = "home"  # new
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

@@ -1,8 +1,0 @@
-# Django template files should be handled carefully
-# Uncomment the line below if Prettier causes issues with Django templates
-# *.html
-
-# Other files to ignore
-node_modules/
-*.min.js
-*.min.css

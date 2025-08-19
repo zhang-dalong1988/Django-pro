@@ -1,24 +1,25 @@
 {
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features",
-        "editor.formatOnSave": false
-    },
-    "[django-html]": {
-        "editor.defaultFormatter": "vscode.html-language-features",
-        "editor.formatOnSave": false
-    },
-    "html.format.wrapLineLength": 120,
-    "html.format.indentInnerHtml": true,
-    "html.format.preserveNewLines": true,
-    "html.format.maxPreserveNewLines": 2,
-    "html.format.indentHandlebars": false,
-    "html.format.endWithNewline": true,
-    "django.snippets.exclude": [],
-    "django.i18n": false,
-    "emmet.includeLanguages": {
-        "django-html": "html"
-    },
-    "files.associations": {
-        "*.html": "django-html"
-    }
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[jinja-html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "html.format.wrapLineLength": 80,
+  "html.format.wrapAttributes": "force-aligned",
+  "html.format.endWithNewline": true,
+  "html.format.indentInnerHtml": true,
+  "files.associations": {
+    "*.html": "django-html",
+    "*.jinja": "jinja-html",
+    "*.jinja2": "jinja-html",
+    "*.j2": "jinja-html"
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html",
+    "jinja-html": "html"
+  }
 }
