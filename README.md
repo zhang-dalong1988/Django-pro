@@ -3,6 +3,8 @@
 - Python 官方文档：<https://docs.python.org/zh-cn/3/contents.html>
 - Django 官方文档：<https://docs.djangoproject.com/zh-hans/5.2/#django-documentation>
 
+本机使用 python 3.13.5 版本，所以部分代码与原文不符，请参考代码
+
 ## 说明
 
 - code 文件夹用于存放示例代码，docs 文件夹用于存放笔记
