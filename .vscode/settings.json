@@ -1,0 +1,24 @@
+{
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": false
+    },
+    "[django-html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": false
+    },
+    "html.format.wrapLineLength": 120,
+    "html.format.indentInnerHtml": true,
+    "html.format.preserveNewLines": true,
+    "html.format.maxPreserveNewLines": 2,
+    "html.format.indentHandlebars": false,
+    "html.format.endWithNewline": true,
+    "django.snippets.exclude": [],
+    "django.i18n": false,
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "files.associations": {
+        "*.html": "django-html"
+    }
+}
