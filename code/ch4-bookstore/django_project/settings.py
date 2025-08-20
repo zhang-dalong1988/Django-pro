@@ -186,3 +186,10 @@ ACCOUNT_LOGOUT_REDIRECT = "home"  # 新增
 # Email 功能
 
 DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"  # 新增
+
+
+# 媒体文件的URL访问路径
+MEDIA_URL = "/media/"  # new
+
+# 媒体文件在服务器上的存储位置
+MEDIA_ROOT = BASE_DIR / "media"  # new
