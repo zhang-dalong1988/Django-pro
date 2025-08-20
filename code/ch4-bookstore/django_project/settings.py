@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",  # 新增
     "allauth",  # 新增
     "allauth.account",  # 新增
+    "debug_toolbar",  # new
     # 本地应用
     "accounts.apps.AccountsConfig",  # 新增
     "pages.apps.PagesConfig",  # new
@@ -60,13 +61,16 @@ AUTH_USER_MODEL = "accounts.CustomUser"  # 新增
 
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.cache.UpdateCacheMiddleware",  # new
+    "django.middleware.security.SecurityMiddleware",  # 安全中间件,提供安全增强功能
+    "django.contrib.sessions.middleware.SessionMiddleware",  # 会话中间件,处理会话
+    "django.middleware.common.CommonMiddleware",  # 通用中间件,处理常见的HTTP功能
+    "django.middleware.csrf.CsrfViewMiddleware",  # CSRF保护中间件,防止跨站请求伪造
+    "django.contrib.auth.middleware.AuthenticationMiddleware",  # 认证中间件,处理用户认证
+    "django.contrib.messages.middleware.MessageMiddleware",  # 消息中间件,处理消息传递
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",  # 点击劫持保护中间件
+    "debug_toolbar.middleware.DebugToolbarMiddleware",  # 调试中间件,提供调试功能
+    "django.middleware.cache.FetchFromCacheMiddleware",  # new
 ]
 
 ROOT_URLCONF = "django_project.urls"
@@ -187,9 +191,31 @@ ACCOUNT_LOGOUT_REDIRECT = "home"  # 新增
 
 DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"  # 新增
 
+# 媒体文件配置
 
-# 媒体文件的URL访问路径
-MEDIA_URL = "/media/"  # new
+MEDIA_URL = "/media/"  # 媒体文件的URL访问路径
 
-# 媒体文件在服务器上的存储位置
-MEDIA_ROOT = BASE_DIR / "media"  # new
+MEDIA_ROOT = BASE_DIR / "media"  # 媒体文件在服务器上的存储位置
+
+# 调试工具
+
+import socket
+
+# 获取主机名和IP地址
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+# 设置内部IP,用于Django调试工具栏
+INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
+
+# 缓存设置
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
+    }
+}
+
+# 缓存中间件配置
+CACHE_MIDDLEWARE_ALIAS = "default"  # 使用的缓存后端别名
+CACHE_MIDDLEWARE_SECONDS = 604800  # 缓存保持时间(秒),这里设置为1周
+CACHE_MIDDLEWARE_KEY_PREFIX = ""  # 缓存键前缀,空字符串表示不使用前缀
