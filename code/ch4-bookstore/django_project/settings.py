@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # 本地应用
     "accounts.apps.AccountsConfig",  # 新增
     "pages.apps.PagesConfig",  # new
+    "books.apps.BooksConfig",  # 新增
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"  # 新增

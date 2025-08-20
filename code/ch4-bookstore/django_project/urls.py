@@ -1,12 +1,12 @@
 from django.contrib import admin
-from django.urls import path, include  # new
+from django.urls import path, include
 
 urlpatterns = [
-    # Django 管理员
+    # Django admin
     path("admin/", admin.site.urls),
-    # 用户管理
-    # path("accounts/", include("django.contrib.auth.urls")),  # 新增
-    path("accounts/", include("allauth.urls")),  # 新增
-    # 本地应用
+    # User management
+    path("accounts/", include("allauth.urls")),
+    # Local apps
     path("", include("pages.urls")),
+    path("books/", include("books.urls")),  # 新增
 ]
