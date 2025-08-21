@@ -4,3 +4,4 @@ __pycache__/
 db.sqlite3
 # 仅限 Mac
 .DS_Store 
+docker-compose-prod.yml

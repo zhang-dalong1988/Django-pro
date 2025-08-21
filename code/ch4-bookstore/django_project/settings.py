@@ -31,7 +31,8 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # DEBUG = True
 # ALLOWED_HOSTS = []
 
-DEBUG = env.bool("DJANGO_DEBUG")  # 新增
+DEBUG = env.bool("DJANGO_DEBUG", default=False)  # new
+
 ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]  # 新增
 
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",  # 作用：提供内容类型框架,用于跟踪模型和权限
     "django.contrib.sessions",  # 作用：提供会话支持,用于存储和检索会话数据
     "django.contrib.messages",  # 作用：提供消息框架,用于在请求之间传递临时消息
+    "whitenoise.runserver_nostatic",  # new
     "django.contrib.staticfiles",  # 作用：提供静态文件管理,用于处理CSS、JavaScript等静态资源
     "django.contrib.sites",  # 作用：提供站点框架,用于管理多个站点
     # 第三方
@@ -63,6 +65,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"  # 新增
 MIDDLEWARE = [
     "django.middleware.cache.UpdateCacheMiddleware",  # new
     "django.middleware.security.SecurityMiddleware",  # 安全中间件,提供安全增强功能
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # new
     "django.contrib.sessions.middleware.SessionMiddleware",  # 会话中间件,处理会话
     "django.middleware.common.CommonMiddleware",  # 通用中间件,处理常见的HTTP功能
     "django.middleware.csrf.CsrfViewMiddleware",  # CSRF保护中间件,防止跨站请求伪造
@@ -219,3 +222,6 @@ CACHES = {
 CACHE_MIDDLEWARE_ALIAS = "default"  # 使用的缓存后端别名
 CACHE_MIDDLEWARE_SECONDS = 604800  # 缓存保持时间(秒),这里设置为1周
 CACHE_MIDDLEWARE_KEY_PREFIX = ""  # 缓存键前缀,空字符串表示不使用前缀
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"  # new
